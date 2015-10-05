@@ -14,7 +14,15 @@ var Timer = React.createClass({
 
 	render: function(){
 		return(
-		<div>Seconds Elapsed: {this.state.secondsElapsed} and the Time now is: {this.props.date.toUTCString()}</div>
+		<div>
+		Seconds Elapsed: {this.state.secondsElapsed} 
+		<br></br>
+		and the Time now is: {this.props.date.toUTCString()}
+		<br></br>
+		time here in India is: {this.props.date.toLocaleString()}
+		<br></br>
+		time in USA is: {this.props.date.toLocaleString('en-US')}
+		</div>
 		);
 	}
 
