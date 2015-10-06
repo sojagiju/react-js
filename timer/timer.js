@@ -13,15 +13,30 @@ var Timer = React.createClass({
 	},
 
 	render: function(){
+		var date=new Date();
+		var utc=moment.tz(date, "UTC").format();
+		var newYork=moment.tz(date, "America/New_York").format();
+		var calcutta=moment.tz(date, "Asia/Calcutta").format();
+		var london=moment.tz(date,"Europe/London").format();
+		var australia=moment.tz(date,"Australia/Sydney").format();
 		return(
 		<div>
 		Seconds Elapsed: {this.state.secondsElapsed} 
 		<br></br>
-		and the Time now is: {this.props.date.toUTCString()}
 		<br></br>
-		time here in India is: {this.props.date.toLocaleString()}
+		Time UTC : {utc}
 		<br></br>
-		time in USA is: {this.props.date.toLocaleString('en-US')}
+		<br></br>
+		Time PST NewYork : {newYork}
+		<br></br>
+		<br></br>
+		Time PST India : {calcutta}
+		<br></br>
+		<br></br>
+		Time GST London : {london}
+		<br></br>
+		<br></br>
+		Time AUS Sydney : {australia}
 		</div>
 		);
 	}
@@ -29,6 +44,6 @@ var Timer = React.createClass({
 });
 
 setInterval(function(){
-	React.render(<Timer date={new Date()} />, document.getElementById("container"));
+	React.render(<Timer />, document.getElementById("container"));
 
-})
+}, 1000);
